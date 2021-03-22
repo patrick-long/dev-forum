@@ -1,0 +1,27 @@
+<%- include('../partials/header'); %>
+
+<h1>Ask a question here</h1>
+<h3>For other devs to give their input</h3>
+
+<div class="new-forum">
+    <form action="/movies" method="POST" class="new-forum-form">
+        <div>
+            <p class="form-title">Title</p>
+            <p class="form-descriptor">Please be specific | Imagine you're asking a question to another person</p>
+            <input type="text" name="title">
+        </div>
+        <div>
+            <p class="form-title">Body</p>
+            <p class="form-descriptor">Include all information someone might need to respond effectively</p>
+            <textarea name="content" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <p class="form-title">Tags</p>
+            <p class="form-descriptor">Add tags to link to your question</p>
+            <input type="text" name="tags">
+        </div>
+        <input type="submit" value="Post your question">
+    </form>
+</div>
+
+<%- include('../partials/footer'); %>

@@ -11,6 +11,17 @@ router.get('/', (req, res) => {
 
 router.get('/new', (req, res) => {
     res.render('forums/new');
-})
+});
+
+router.post('/new', (req, res) => {
+    Forum.create(req.body, (err, forum) => {
+        if (err) { 
+            return res.redirect('/forums/new') 
+        };
+        res.redirect(`/forums`);
+    });
+});
+
+
 
 module.exports = router;

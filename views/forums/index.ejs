@@ -2,4 +2,13 @@
 
 <h1>Developer Forums</h1>
 
+<% forums.forEach((forum) => { %>
+<div class="forum-post">
+    <h4><%= forum.title %></h4>
+    <p><%= forum.timestamps %></p>
+    <p><%= forum.content %></p>
+    <p><%= forum.tags %></p>
+</div>
+<% }); %>
+
 <% include('../partials/footer'); %>

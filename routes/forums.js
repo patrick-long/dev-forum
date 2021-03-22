@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const forumsCtrl = require('../controllers/forums');
 
-router.get('/', forumsCtrl.index);
+router.get('/', (req, res) => {
+    res.render('forums/index');
+});
 
 module.exports = router;

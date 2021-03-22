@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://admin:1234@cluster0.u8q4e.mongodb.net/dev-forums?retryWrites=true&w=majority', {
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}${process.env.DB_URL}`, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,

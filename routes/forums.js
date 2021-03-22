@@ -19,6 +19,7 @@ router.post('/new', (req, res) => {
             return res.redirect('/forums/new') 
         };
         res.redirect(`/forums`);
+        console.log(req.body);
     });
 });
 

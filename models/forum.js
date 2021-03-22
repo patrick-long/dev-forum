@@ -15,7 +15,8 @@ const forumSchema = new Schema ({
         required: true,
     },
     // reviews: [reviewSchema]
-}, { timestamps: true
+}, { 
+    timestamps: true
 });
 
 module.exports = mongoose.model('Forum', forumSchema);

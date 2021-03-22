@@ -1,5 +1,6 @@
 // Require modules 
 const express = require('express');
+const dotenv = require('dotenv').config();
 const morgan = require('morgan');
 const port = 3000; 
 const session = require('express-session'); 

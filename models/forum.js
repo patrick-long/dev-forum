@@ -1,6 +1,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const responseSchema = new Schema ({
+    content: String,
+    rating: {
+        type: Number,
+        min: 1,
+        max: 5,
+        default: 5
+    }
+},  {
+    timestamps: true,
+})
+
 const forumSchema = new Schema ({
     title: {
         type: String,
@@ -14,8 +26,14 @@ const forumSchema = new Schema ({
         type: String,
         required: true,
     },
-    // reviews: [reviewSchema]
-}, { 
+    responses: [responseSchema],
+    rating: {
+        type: Number,
+        min: 1,
+        max: 5,
+        default: 5
+    }
+},  { 
     timestamps: true
 });
 

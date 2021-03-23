@@ -9,7 +9,7 @@ const session = require('express-session');
 // Require routers
 const loginRouter = require('./routes/login');
 const forumsRouter = require('./routes/forums');
-// const reviewsRouter = require('./routes/reviews');
+const responseRouter = require('./routes/response');
 const { urlencoded } = require('express');
 
 // Set up an express app
@@ -37,7 +37,7 @@ app.use(session({
 // Mount routes with app.use()
 app.use('/', loginRouter);
 app.use('/forums', forumsRouter);
-// app.use('/', reviewsRouter);
+app.use('/', responseRouter);
 
 // Set port to listen on localhost:3000
 app.listen(port, function() {

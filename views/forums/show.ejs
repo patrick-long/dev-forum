@@ -1,13 +1,51 @@
 <%- include('../partials/header'); %>
 
-<h1><%= title %></h1>
 
 <div class="forum-post">
+    <h1><%= title %></h1>
+    <p class="create-timestamp">Posted <%= forums.createdAt.toLocaleString() %></p>
+    <hr>
     <p><%= forums.content %></p>
+    <br>
     <p><%= forums.tags %></p>
 </div>
 <a href="/forums/<%= forums._id %>/edit">Edit this forum</a>
 
-<!-- this is where reviews are going to be rendered in the future  -->
+<!-- begin comments show section -->
+
+<% if (forums.responses.length) { %> 
+    <% let total = 0; %>
+    <% forums.responses.forEach((response) => { %> 
+        <% total += response.rating; %> 
+        
+        <div class="response-post">
+            <p class="create-timestamp">Posted <%= response.createdAt.toLocaleString() %></p>
+            <p><%= response.rating %></p>
+            <p><%= response.content %></p>
+        </div>
+        <% }) %>
+        <h3>Was this question helpful? (<%= (total / forums.responses.length) %>/5)</h3>
+<% } else { %> 
+    <h4>No responses yet</h4>
+<% }; %>
+
+<!-- begin commments form section to create a new comment and rating -->
+
+<h2>Add a response:</h2>
+<form action="/forums/<%= forums._id %>/responses" method="post" class="response-form">
+    <label>Response:
+        <textarea name="content" cols="30" rows="10"></textarea>
+    </label>
+    <label>How helpful was this question?
+        <select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </label>
+    <input type="submit" value="Add Response">
+</form>
 
 <% include('../partials/footer'); %>

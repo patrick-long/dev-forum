@@ -8,6 +8,7 @@
         <button type="submit" id="delete-button">X</button>
     </form>
     <a class="title-link" href="/forums/<%= forum._id %>"><%= forum.title %></a>
+    <p class="create-timestamp">Posted <%= forum.createdAt.toLocaleDateString() %></p>
     <p><%= forum.content %></p>
     <p><%= forum.tags %></p>
 </div>

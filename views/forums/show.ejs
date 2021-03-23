@@ -1,0 +1,13 @@
+<%- include('../partials/header'); %>
+
+<h1><%= title %></h1>
+
+<div class="forum-post">
+    <p><%= forums.content %></p>
+    <p><%= forums.tags %></p>
+</div>
+<a href="/forums/<%= forums._id %>/edit">Edit this forum</a>
+
+<!-- this is where reviews are going to be rendered in the future  -->
+
+<% include('../partials/footer'); %>

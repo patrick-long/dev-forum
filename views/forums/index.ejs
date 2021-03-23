@@ -4,8 +4,10 @@
 
 <% forums.forEach((forum) => { %>
 <div class="forum-post">
-    <h4><%= forum.title %></h4>
-    <p><%= forum.timestamps %></p>
+    <form action="/forums/<%= forum._id %>?_method=DELETE" method="post">
+        <button type="submit" id="delete-button">X</button>
+    </form>
+    <a class="title-link" href="/forums/<%= forum._id %>"><%= forum.title %></a>
     <p><%= forum.content %></p>
     <p><%= forum.tags %></p>
 </div>

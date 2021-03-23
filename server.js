@@ -2,6 +2,7 @@
 const express = require('express');
 const dotenv = require('dotenv').config();
 const morgan = require('morgan');
+const methodOverride = require('method-override');
 const port = 3000; 
 const session = require('express-session'); 
 
@@ -24,6 +25,7 @@ app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
 
 // Create express session
 app.use(session({

@@ -15,8 +15,7 @@
 
 <% let total = 0; %>
 <% forums.responses.forEach((response) => { %>
-<% console.log(response._id, responseId); %>
-<% if (response._id === responseId) { %>
+<% if (response._id == responseId) { %>
     <% total += response.rating; %> 
     <div class="response-post">
         <form action="/responses/<%= response._id %>?_method=DELETE" method="post">

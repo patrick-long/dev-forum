@@ -10,7 +10,7 @@ const responseSchema = new Schema ({
         default: 5
     }
 },  {
-    timestamps: true,
+    timestamps: true
 })
 
 const forumSchema = new Schema ({

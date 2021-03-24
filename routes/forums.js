@@ -55,7 +55,6 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', async (req, res) => {
     await Forum.findByIdAndUpdate(req.params.id, req.body);
     res.redirect(`/forums/${req.params.id}`);
-    console.log(Forum.responses.id());
 });
 
 

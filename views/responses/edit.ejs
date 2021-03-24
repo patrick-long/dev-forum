@@ -1,0 +1,88 @@
+<%- include('../partials/header'); %>
+
+
+<div class="forum-post">
+    <h1><%= title %></h1>
+    <p class="create-timestamp">Posted <%= forums.createdAt.toLocaleString() %></p>
+    <hr>
+    <p><%= forums.content %></p>
+    <br>
+    <p><%= forums.tags %></p>
+</div>
+<a href="/forums/<%= forums._id %>/edit">Edit this forum</a>
+
+<!-- begin comments show section -->
+
+<% let total = 0; %>
+<% forums.responses.forEach((response) => { %>
+<% console.log(response._id, responseId); %>
+<% if (response._id === responseId) { %>
+    <% total += response.rating; %> 
+    <div class="response-post">
+        <form action="/responses/<%= response._id %>?_method=DELETE" method="post">
+            <button type="submit" class="delete-button">X</button>
+        </form>
+            <p class="create-timestamp">Posted <%= response.createdAt.toLocaleString() %></p>
+            <p><%= response.rating %></p>
+            <p><%= response.content %></p>
+<!-- form for editing a posted response  -->
+        <form action="/responses/<%= response._id %>?_method=PUT" method="post" class="response-edit-form">
+            <button href="/forums/<%= forums._id %>" class="exit-response=edit">Cancel</button>
+            <h3>Editing response...</h3>
+            <label>Response:
+                <textarea name="content" cols="30" rows="10"><%= response.content %></textarea>
+            </label>
+            <label>How helpful was this question?
+                <select name="rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </label>
+            <input type="submit" value="Update Response">
+<!-- end form for editing -->
+        </form>
+<!-- end posted response div -->
+    </div>
+    <% } else { %>
+        <!-- posted response section  -->
+        <div class="response-post">
+            <form action="/responses/<%= response._id %>?_method=DELETE" method="post">
+                <button type="submit" class="delete-button">X</button>
+            </form>
+                <p class="create-timestamp">Posted <%= response.createdAt.toLocaleString() %></p>
+                <p><%= response.rating %></p>
+                <p><%= response.content %></p>
+                <form action="/responses/<%= response._id %>/edit" method="get">
+                    <button class="edit-response-button">Edit</button>
+                </form>
+<!-- end form for editing -->
+            </form>
+<!-- end posted response div -->
+        </div>
+        <% }; %>
+    <% }); %>
+        <h3 class="forum-rating-calculated">Was this question helpful? (<%= (total / forums.responses.length).toFixed(1) %>/5)</h3>
+
+<!-- begin commments form section to create a new comment and rating -->
+
+<h2>Add a response:</h2>
+<form action="/forums/<%= forums._id %>/responses" method="post" class="response-form">
+    <label>Response:
+        <textarea name="content" cols="30" rows="10"></textarea>
+    </label>
+    <label>How helpful was this question?
+        <select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </label>
+    <input type="submit" value="Add Response">
+</form>
+
+<% include('../partials/footer'); %>

@@ -24,7 +24,9 @@
                 <p class="create-timestamp">Posted <%= response.createdAt.toLocaleString() %></p>
                 <p><%= response.rating %></p>
                 <p><%= response.content %></p>
-                <a href="/responses/<%= response._id %>/edit" class="edit-response-button">Edit</a>
+                <form action="/responses/<%= response._id %>/edit" method="get">
+                    <button class="edit-response-button">Edit</button>
+                </form>
         </div>
         <% }) %>
         <h3>Was this question helpful? (<%= (total / forums.responses.length).toFixed(1) %>/5)</h3>

@@ -28,13 +28,15 @@ router.get('/responses/:id/edit', (req, res) => {
     Forum.findOne({ 'responses._id': req.params.id }, (err, forums) => {
         res.render('responses/edit', {
             forums,
-            responses: forums.responses
+            responses: forums.responses,
+            responseId: req.params.id,
+            title: forums.title
         })
     })
 });
 
-router.put('/responses/:id', (req, res) => {
-    Forum.findOne({ 'responses._id': req.params.id }, (err, forum) => {
+router.put('/responses/:id', async (req, res) => {
+    await Forum.findOne({ 'responses._id': req.params.id }, (err, forum) => {
         const response = forum.responses.id(req.params.id); 
         response.overwrite(req.body);
         forum.save((err) => {

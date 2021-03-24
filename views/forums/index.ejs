@@ -5,7 +5,7 @@
 <% forums.forEach((forum) => { %>
 <div class="forum-post">
     <form action="/forums/<%= forum._id %>?_method=DELETE" method="post">
-        <button type="submit" id="delete-button">X</button>
+        <button type="submit" class="delete-button">X</button>
     </form>
     <a class="title-link" href="/forums/<%= forum._id %>"><%= forum.title %></a>
     <p class="create-timestamp">Posted <%= forum.createdAt.toLocaleDateString() %></p>

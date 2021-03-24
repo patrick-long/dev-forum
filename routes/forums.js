@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/new', (req, res) => {
+router.post('/', (req, res) => {
     Forum.create(req.body, (err, forum) => {
         if (err) { 
             return res.redirect('/forums/new') 
@@ -53,9 +53,9 @@ router.get('/:id/edit', (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-    console.log(req.body);
     await Forum.findByIdAndUpdate(req.params.id, req.body);
     res.redirect(`/forums/${req.params.id}`);
+    console.log(Forum.responses.id());
 });
 
 

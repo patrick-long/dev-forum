@@ -17,14 +17,17 @@
     <% let total = 0; %>
     <% forums.responses.forEach((response) => { %> 
         <% total += response.rating; %> 
-        
         <div class="response-post">
-            <p class="create-timestamp">Posted <%= response.createdAt.toLocaleString() %></p>
-            <p><%= response.rating %></p>
-            <p><%= response.content %></p>
+            <form action="/responses/<%= response._id %>?_method=DELETE" method="post">
+                <button type="submit" class="delete-button">X</button>
+            </form>
+                <p class="create-timestamp">Posted <%= response.createdAt.toLocaleString() %></p>
+                <p><%= response.rating %></p>
+                <p><%= response.content %></p>
+                <a href="/responses/<%= response._id %>/edit" class="edit-response-button">Edit</a>
         </div>
         <% }) %>
-        <h3>Was this question helpful? (<%= (total / forums.responses.length) %>/5)</h3>
+        <h3>Was this question helpful? (<%= (total / forums.responses.length).toFixed(1) %>/5)</h3>
 <% } else { %> 
     <h4>No responses yet</h4>
 <% }; %>

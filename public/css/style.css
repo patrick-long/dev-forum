@@ -6,7 +6,7 @@ body {
     background: white;
 }
 
-.forum-post {
+.forum-post, .response-post {
     position: relative;
     background: white;
     border-radius: 10px; 
@@ -15,8 +15,14 @@ body {
     box-shadow: 4px -4px 15px rgba(128, 128, 128, 0.8);
 }
 
-#delete-button {
+.delete-button {
     position: absolute; 
     top: 10px;
+    right: 10px;
+}
+
+.edit-response-button {
+    position: absolute;
+    bottom: 10px;
     right: 10px;
 }

@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     Forum.create(req.body, (err, forum) => {
         if (err) { 
-            return res.redirect('/forums/new') 
+            res.send(`Oops! ${err._message}. Title, content and tags are all required to submit form.`) 
         };
         res.redirect(`/forums`);
         console.log(req.body);

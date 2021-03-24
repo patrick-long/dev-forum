@@ -6,7 +6,11 @@ router.post('/forums/:id/responses', (req, res) => {
         forum.responses.push(req.body);
         console.log(forum.responses.id);
         forum.save((err) => {
-            res.redirect(`/forums/${forum._id}`);
+            if (err) {
+                res.send(`Oops! ${err._message}. Both content and rating are required to submit a response.`);
+            } else {
+                res.redirect(`/forums/${forum._id}`);
+            }
         })
     })
 });
@@ -41,7 +45,7 @@ router.put('/responses/:id', async (req, res) => {
         response.overwrite(req.body);
         forum.save((err) => {
             if (err) {
-                console.log(err);
+                res.send(`Oops! ${err._message}. Both content and rating are required to submit an edit for a response.`);
             } else {
                 res.redirect(`/forums/${forum._id}`)
             }

@@ -29,6 +29,14 @@ nav {
     align-items: center;
 }
 
+nav > a {
+    color: white;
+}
+
+nav > a:hover {
+    color: grey;
+}
+
 .smaller-container {
     width: 100%;
     height: 100%;

@@ -1,16 +1,18 @@
 <%- include('../partials/forumHeader'); %>
 
-<h1>Developer Forums</h1>
+<h1 style="margin-top: 20px">Developer Forums</h1>
 
 <% forums.forEach((forum) => { %>
-<div class="forum-post">
-    <form action="/forums/<%= forum._id %>?_method=DELETE" method="post">
-        <button type="submit" class="delete-button">X</button>
-    </form>
-    <a class="title-link" href="/forums/<%= forum._id %>"><%= forum.title %></a>
-    <p class="create-timestamp">Posted <%= forum.createdAt.toLocaleDateString() %></p>
-    <p><%= forum.content %></p>
-    <p><%= forum.tags %></p>
+<div class="smaller-container">
+    <div class="forum-post">
+        <form action="/forums/<%= forum._id %>?_method=DELETE" method="post">
+            <button type="submit" class="delete-button btn btn-danger">X</button>
+        </form>
+        <a class="title-link" href="/forums/<%= forum._id %>"><%= forum.title %></a>
+        <p class="create-timestamp">Posted <%= forum.createdAt.toLocaleDateString() %></p>
+        <p><%= forum.content %></p>
+        <p class="tags">Tags: <%= forum.tags %></p>
+    </div>
 </div>
 <% }); %>
 

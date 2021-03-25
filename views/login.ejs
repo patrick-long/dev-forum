@@ -1,23 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Dev Forum | Log in/Sign up</title>
-</head>
+<%- include('./partials/userHeader'); %>
 
-<body>
-    <div class="login-form">
-        <h1 class="login-title">Log in to your account</h1>
-        <form action="/users/signin" method="post">
-            Username: <input type="text" name="username"/><br>
-            Password: <input type="password" name="password"/><br>
-            <input type="submit" value="Log in">
-        </form>
-        <h4>Don't have an account?</h4>
-        <a href="/users/new">Sign up here</a>
-    </div>
+<div class="login-form">
+    <h1 class="login-title">Log in to your account</h1>
+    <form action="/users/signin" method="post">
+        Username: <input type="text" name="username"/><br>
+        Password: <input type="password" name="password"/><br>
+        <input type="submit" value="Log in">
+    </form>
+    <h4>Don't have an account?</h4>
+    <a href="/users/new">Sign up here</a>
+</div>
 
-<% - include('./partials/footer'); %> 
+<footer>
+    <small id="copyright">Copyright &copy; 2021, Developer Forums. All Rights Reserved</small>
+</footer>
+
+<%- include('./partials/footer'); %> 

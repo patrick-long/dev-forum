@@ -15,32 +15,34 @@
     <!-- begin comments show section -->
 
         <% if (forums.responses.length) { %>
-            <% let total = 0; %>
-            <% forums.responses.forEach((response) => { %> 
-                <% total += response.rating; %> 
-                <div class="response-post">
-                    <form action="/responses/<%= response._id %>?_method=DELETE" method="post">
-                        <button type="submit" class="delete-button btn btn-danger">X</button>
-                    </form>
-                    <p class="create-timestamp">Posted <%= response.createdAt.toLocaleString() %></p>
-                    <hr>
-                    <p>Rating: <%= response.rating %></p>
-                    <p><%= response.content %></p>
-                    <form action="/responses/<%= response._id %>/edit" method="get">
-                        <button class="edit-response-button btn btn-primary">Edit</button>
-                    </form>
-                </div>
-                <% }) %>
-    </div>
+        <% let total = 0; %>
+        <% forums.responses.forEach((response) => { %> 
+        <% total += response.rating; %> 
+        <div class="response-post">
+            <form action="/responses/<%= response._id %>?_method=DELETE" method="post">
+                <button type="submit" class="delete-button btn btn-danger">X</button>
+            </form>
+            <p class="create-timestamp">Posted <%= response.createdAt.toLocaleString() %></p>
+            <hr>
+            <p>Rating: <%= response.rating %>/5</p>
+            <p><%= response.content %></p>
+            <form action="/responses/<%= response._id %>/edit" method="get">
+                <button class="edit-response-button btn btn-primary">Edit</button>
+            </form>
+        </div>
+        <% }) %>
         <br>
+    </div>
         <h3 style="margin-top: 20px">Was this question helpful? (<%= (total / forums.responses.length).toFixed(1) %>/5)</h3>
         <% } else { %> 
-            <h4>No responses yet</h4>     
+    </div>
+            <h4 style="margin-top: 20px">No responses yet</h4>     
         <% }; %>
+
     <!-- begin commments form section to create a new comment and rating -->
 
     <h2 style="margin-top: 30px">Add a response:</h2>
-    <form action="/forums/<%= forums._id %>/responses" method="post" class="response-form" class="response-form">
+    <form action="/forums/<%= forums._id %>/responses" method="post" class="response-form">
         <label>Response:
             <textarea class="form-control" name="content"></textarea>
         </label>

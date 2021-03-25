@@ -51,8 +51,9 @@ router.post('/', (req, res) => {
         Forum.create(req.body, (err, forum) => {
             if (err) { 
                 res.send(`Oops! ${err._message}. Title, content and tags are all required to submit form.`);
-            };
+            } else {
             res.redirect(`/forums`);
+            }
         });
     } else {
         res.redirect('/users/login');

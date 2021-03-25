@@ -18,12 +18,16 @@ Web forum designed for developers to come and ask questions about coding problem
 ---
 
 ## 📸 Screenshots of the Deployed App 📸
-
+![alt text](image.jpg)
 Log in screen where users can log in to the app
+![screenshot of login screen](public/imgs/homescreen.png)
 
 Error handling for invalid credentials
+![screenshot of invalid login credentials](public/imgs/login-error.png)
+![screenshot of invalid sign up credentials](public/imgs/signup-error.png)
 
 Sign up screen
+![screenshot of sign up screen](public/imgs/signup.png)
 
 Forum dashboard
 
@@ -42,7 +46,7 @@ Delete a forum posting or response
 --- 
 ## 💃 Access 🕺
 
-You can access the deployed app here. Get to posting!
+You can access the deployed app [here](https://software-developer-forums.herokuapp.com/users/login). Get to posting!
 
 ---
 

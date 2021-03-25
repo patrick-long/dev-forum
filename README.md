@@ -18,30 +18,47 @@ Web forum designed for developers to come and ask questions about coding problem
 ---
 
 ## 📸 Screenshots of the Deployed App 📸
-![alt text](image.jpg)
+
 Log in screen where users can log in to the app
+
 ![screenshot of login screen](public/imgs/homescreen.png)
 
 Error handling for invalid credentials
+
 ![screenshot of invalid login credentials](public/imgs/login-error.png)
+
 ![screenshot of invalid sign up credentials](public/imgs/signup-error.png)
 
 Sign up screen
+
 ![screenshot of sign up screen](public/imgs/signup.png)
 
 Forum dashboard
 
+![screenshot of forum dashboard](public/imgs/forumDashboard.png)
+
 Show view for forums
+
+![screenshot of forum show view](public/imgs/forumShow.png)
 
 Ask a question!
 
+![screenshot of form to ask a question](public/imgs/askQuestion.png)
+
 Edit forum postings
+
+![screenshot of view to edit forum postings](public/imgs/editForum.png)
 
 Add a response and rating to the forum post
 
+![screenshot of the response form at the bottom of the forum show view](public/imgs/postResponse.png)
+
 Edit a response
 
+
 Delete a forum posting or response
+
+![screenshot of delete buttons on the index view of forums](public/imgs/deletePosting.png)
 
 --- 
 ## 💃 Access 🕺

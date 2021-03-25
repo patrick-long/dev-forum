@@ -1,19 +1,25 @@
 <%- include('./partials/userHeader'); %>
-    
-<div class="login-form">
-    <h1 class="login-title">Log in to your account</h1>
-    <form action="/users/signin" method="post">
-        Username: <input type="text" name="username"/><br>
-        Password: <input type="password" name="password"/><br>
-        <p class="login-error">Sorry! Incorrect username or</p>
-        <input type="submit" value="Log in">
-    </form>
-    <h4>Don't have an account?</h4>
-    <a href="/users/new">Sign up here</a>
-</div>
-
-<footer>
+   
+<h1 class="big-title">Developer Forums</h1>
+<div class="big-container">
+    <div class="smaller-container">
+        <div class="login-form">
+            <h2 class="login-title">Login to your account</h2>
+            <form action="/users/signin" method="post">
+                <label>Username:
+                    <input type="email" name="username" class="form-control" placeholder="Username"/>
+                </label>
+                <label>Password: 
+                    <input type="password" name="password" class="form-control" placeholder="Password"/>
+                </label>
+                <p class="login-error">Sorry! Incorrect username or password</p>
+                <button class="btn btn-primary" type="submit">Login</button>
+            </form>
+            <h3>Don't have an account?</h3>
+            <a href="/users/new">Sign up here</a>
+        </div>
+    </div>
     <small id="copyright">Copyright &copy; 2021, Developer Forums. All Rights Reserved</small>
-</footer>
+</div>
 
 <%- include('./partials/footer'); %> 

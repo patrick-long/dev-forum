@@ -1,14 +1,24 @@
 <%- include('../partials/userHeader'); %>
 
-    <div class="login-form">
-        <h1 class="login-title">Create an account</h1>
-        <form action="/users/signup" method="post">
-            Username: <input type="text" name="username"/><br>
-            Password: <input type="password" name="password"/><br>
-            <input type="submit" value="Sign up">
-        </form>
-        <h4>Already have an account?</h4>
-        <a href="/users/login">Log in here</a>
+<h1 class="big-title">Developer Forums</h1>
+<div class="big-container">
+    <div class="smaller-container">
+        <div class="login-form">
+            <h2 class="login-title">Sign up for an account</h2>
+            <form action="/users/signup" method="post">
+                <label>Username:
+                    <input type="email" name="username" class="form-control" placeholder="Username"/>
+                </label>
+                <label>Password: 
+                    <input type="password" name="password" class="form-control" placeholder="Password"/>
+                </label>
+                <button class="btn btn-primary" type="submit">Sign up</button>
+            </form>
+            <h3>Already have an account?</h3>
+            <a href="/users/login">Login here</a>
+        </div>
     </div>
+    <small id="copyright">Copyright &copy; 2021, Developer Forums. All Rights Reserved</small>
+</div>
 
 <%- include('../partials/footer'); %>

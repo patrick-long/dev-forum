@@ -23,8 +23,7 @@ router.post('/users/signup', (req, res) => {
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(saltRounds)); 
     User.create(req.body, (err, newUser) => {
         if (err) {
-            res.send(err);
-            res.redirect('/users/new');
+            res.render('users/new-error');
         } else {
             console.log(newUser);
             res.redirect('/forums');

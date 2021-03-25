@@ -113,3 +113,30 @@ nav > a:hover {
 small {
     margin-top: 20px;
 }
+
+.new-forum {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.new-forum-title, .new-forum-content, .new-forum-tags {
+    margin-top: 20px;
+}
+
+.new-forum-title {
+    margin-top: 0px;
+}
+
+.form-title {
+    font-size: 20px;
+}
+
+hr {
+    background: white;
+}
+
+.new-forum-button {
+    margin-top: 20px;
+}

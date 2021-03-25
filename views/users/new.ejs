@@ -9,15 +9,15 @@
 </head>
 
 <body>
-    <div class="login-form">
-        <h1 class="login-title">Log in to your account</h1>
-        <form action="/users/login" method="post">
+    <div class="signup-form">
+        <h1 class="signup-title">Create an account</h1>
+        <form action="/users/signup" method="post">
             Username: <input type="text" name="username"/><br>
             Password: <input type="password" name="password"/><br>
-            <input type="submit" value="Log in">
+            <input type="submit" value="Sign up">
         </form>
-        <h4>Don't have an account?</h4>
-        <a href="/users/new">Sign up here</a>
+        <h4>Already have an account?</h4>
+        <a href="/users/login">Log in here</a>
     </div>
 
-<% - include('./partials/footer'); %> 
+<%- include('../partials/footer'); %>

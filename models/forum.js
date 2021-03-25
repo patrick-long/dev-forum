@@ -11,8 +11,7 @@ const responseSchema = new Schema ({
         min: 1,
         max: 5,
         default: 5
-    },
-
+    }
 },  {
     timestamps: true
 })
@@ -31,6 +30,10 @@ const forumSchema = new Schema ({
         required: true,
     },
     responses: [responseSchema],
+    user: [{
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }],
     rating: {
         type: Number,
         min: 1,

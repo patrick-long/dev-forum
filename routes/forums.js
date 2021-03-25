@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Forum = require('../models/forum');
 
+// generates index view of all forum posts 
 router.get('/', (req, res) => {
     Forum.find({}, (err, forums) => {
         res.render('forums/index', {
@@ -9,12 +10,14 @@ router.get('/', (req, res) => {
     })
 });
 
+// generates form to create a new forum post
 router.get('/new', (req, res) => {
     res.render('forums/new');
 });
 
+// generates show view for a specific forum
 router.get('/:id', (req, res) => {
-    Forum.findById({_id: req.params.id}, (err, forums) => {
+    Forum.findById(req.params.id, (err, forums) => {
         res.render('forums/show', {
             forums,
             title: forums.title
@@ -22,27 +25,32 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// creates new forum post
 router.post('/', (req, res) => {
+    // req.body.tags = req.body.tags.replace(/\s*/g, (match) => {
+        
+    // })
     Forum.create(req.body, (err, forum) => {
         if (err) { 
-            res.send(`Oops! ${err._message}. Title, content and tags are all required to submit form.`) 
+            res.send(`Oops! ${err._message}. Title, content and tags are all required to submit form.`);
+            return;
         };
         res.redirect(`/forums`);
-        console.log(req.body);
     });
 });
 
+// deletes a specific post
 router.delete('/:id', (req, res) => {
-    console.log(req.params.id);
     Forum.deleteOne({ _id: req.params.id }, (err, forum) => {
         res.redirect('/forums');
     });
 });
 
+// generates form to edit forum post
 router.get('/:id/edit', (req, res) => {
     Forum.findById({ _id: req.params.id }, (err, forum) => {
         if (err) {
-            console.log(err);
+            res.send(`Oops! ${err._message}. Title, content and tags are all required for submit form.`);
         } else {
             res.render('forums/edit', {
                 forum,
@@ -52,6 +60,7 @@ router.get('/:id/edit', (req, res) => {
     })
 });
 
+// saves changes from forum update form
 router.put('/:id', async (req, res) => {
     await Forum.findByIdAndUpdate(req.params.id, req.body);
     res.redirect(`/forums/${req.params.id}`);

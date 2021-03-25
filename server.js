@@ -7,10 +7,9 @@ const port = 3000;
 const session = require('express-session'); 
 
 // Require routers
-const loginRouter = require('./routes/login');
+const usersRouter = require('./routes/users');
 const forumsRouter = require('./routes/forums');
 const responseRouter = require('./routes/response');
-const { urlencoded } = require('express');
 
 // Set up an express app
 const app = express();
@@ -35,7 +34,7 @@ app.use(session({
 }));
 
 // Mount routes with app.use()
-app.use('/', loginRouter);
+app.use('/', usersRouter);
 app.use('/forums', forumsRouter);
 app.use('/', responseRouter);
 

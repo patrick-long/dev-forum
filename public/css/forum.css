@@ -1,22 +1,71 @@
 body {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     margin: 0;
-    background: url('/imgs/login-wallpaper.jpeg') center fixed no-repeat;
+    background: rgb(50, 50, 50);
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
+}
+
+header {
+    height: 10vh;
+    width: 100vw;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    width: 100%;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.smaller-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.big-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
 
 .forum-post, .response-post {
     position: relative;
     background: white;
     border-radius: 10px; 
-    margin: 20px auto;
+    margin-top: 20px;
+    width: 90%;
+    max-width: 1100px;
     padding: 10px;
-    box-shadow: 4px -4px 15px rgba(128, 128, 128, 0.8);
+    box-shadow: 4px -4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.smaller-container > a {
+    margin-top: 20px;
+}
+
+.tags, .create-timestamp {
+    color: grey;
 }
 
 .delete-button {
@@ -44,4 +93,15 @@ body {
 
 .big-title {
     margin-top: 10vh;
+}
+
+.response-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+small {
+    margin-top: 20px;
 }

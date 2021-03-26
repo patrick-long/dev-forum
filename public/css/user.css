@@ -125,4 +125,10 @@ body {
     .login-form {
         width: 80%;   
     }
+    .big-title {
+        margin-top: 20px;
+    }
+    .login-form {
+        margin-bottom: 20px;
+    }
 }

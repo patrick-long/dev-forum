@@ -63,7 +63,7 @@ nav > a:hover {
     border-radius: 10px; 
     margin-top: 20px;
     width: 90%;
-    max-width: 1100px;
+    max-width: 900px;
     padding: 10px;
     box-shadow: 4px -4px 15px rgba(0, 0, 0, 0.8);
     color: black;
@@ -109,6 +109,7 @@ nav > a:hover {
     flex-direction: column;
     justify-content: center;
     width: 50%;
+    max-width: 600px;
 }
 
 small {
@@ -145,8 +146,43 @@ hr {
     align-items: center;
     justify-content: space-between;
     width: 30%;
+    min-width: 240px;
 }
 
 .forum-post:hover {
     box-shadow: 4px -4px 15px rgb(79, 79, 79);
 }
+
+.response-content-edit {
+    width: 70%;
+}
+
+.response-rating-edit {
+    width: 70%;    
+}
+
+.response-edit-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.response-edit-form > .new-edit-buttons {
+    width: 45%; 
+}
+
+.response-edit-form > hr {
+    background: grey;
+    height: 1px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 400px) {
+    .forum-rating-calculated {
+        text-align: center;
+    }
+}
+

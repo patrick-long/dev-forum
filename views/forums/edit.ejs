@@ -3,7 +3,7 @@
 <h1 style="margin-top: 20px">Edit your post here</h1>
 
 <div class="new-forum">
-    <form action="/forums" method="POST" class="new-forum-form">
+    <form action="/forums/<%= forum._id %>?_method=PUT" method="POST" class="new-forum-form">
         <div class="new-forum-title">
             <p class="form-title">Title</p>
             <hr>
@@ -25,7 +25,7 @@
 </div>
     <div class="new-edit-buttons">
         <a class="btn btn-danger new-forum-button" href="/forums/<%= forum._id %>">Cancel</a>
-        <input type="submit" class="new-forum-button btn btn-primary" value="Post your question">
+        <input type="submit" class="new-forum-button btn btn-primary" value="Edit your post">
     </div>
     </form>
 

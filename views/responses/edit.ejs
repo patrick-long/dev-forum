@@ -1,87 +1,97 @@
 <%- include('../partials/forumHeader'); %>
 
-
-<div class="forum-post">
-    <h1><%= title %></h1>
-    <p class="create-timestamp">Posted <%= forums.createdAt.toLocaleString() %></p>
-    <hr>
-    <p><%= forums.content %></p>
-    <br>
-    <p><%= forums.tags %></p>
-</div>
-<a href="/forums/<%= forums._id %>/edit">Edit this forum</a>
+<div class="big-container">
+    <div class="smaller-container">
+        <div class="forum-post">
+            <h1><%= title %></h1>
+            <p class="create-timestamp">Posted <%= forums.createdAt.toLocaleString() %></p>
+            <hr>
+            <p><%= forums.content %></p>
+            <br>
+            <p class="tags">Tags: <%= forums.tags %></p>
+        </div>
+        <a href="/forums/<%= forums._id %>/edit">Edit this forum</a>
 
 <!-- begin comments show section -->
 
-<% let total = 0; %>
-<% forums.responses.forEach((response) => { %>
-<% if (response._id == responseId) { %>
-    <% total += response.rating; %> 
-    <div class="response-post">
-        <form action="/responses/<%= response._id %>?_method=DELETE" method="post">
-            <button type="submit" class="delete-button">X</button>
-        </form>
+        <% let total = 0; %>
+        <% forums.responses.forEach((response) => { %>
+        <% if (response._id == responseId) { %>
+        <% total += response.rating; %> 
+        <div class="response-post">
+            <form action="/responses/<%= response._id %>?_method=DELETE" method="post">
+                <button type="submit" class="delete-button btn btn-danger">X</button>
+            </form>
             <p class="create-timestamp">Posted <%= response.createdAt.toLocaleString() %></p>
-            <p><%= response.rating %></p>
+            <p>Rating: <%= response.rating %>/5</p>
             <p><%= response.content %></p>
 <!-- form for editing a posted response  -->
-        <form action="/responses/<%= response._id %>?_method=PUT" method="post" class="response-edit-form">
-            <button href="/forums/<%= forums._id %>" class="exit-response=edit">Cancel</button>
-            <h3>Editing response...</h3>
-            <label>Response:
-                <textarea name="content" cols="30" rows="10"><%= response.content %></textarea>
-            </label>
-            <label>How helpful was this question?
-                <select name="rating">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </label>
-            <input type="submit" value="Update Response">
+            <form action="/responses/<%= response._id %>?_method=PUT" method="post" class="response-edit-form">
+                <hr>
+                <h4>Editing response...</h4>
+                <label class="response-content-edit">Response:
+                    <textarea class="form-control" name="content"></textarea>
+                </label>
+                <label class="response-rating-edit">How helpful was this question?
+                    <select name="rating" class="form-control response-option">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </label>
+                <div class="new-edit-buttons">
+                    <a class="btn btn-danger new-forum-button" href="/forums/<%= forums._id %>">Cancel</a>
+                    <input type="submit" class="btn btn-primary" value="Update Response">
+                </div>
+            </form>
+
+<!-- end form for editing -->
+            </form>
+
+<!-- end posted response div -->
+        </div>
+    </div>
+        <% } else { %>
+    </div>
+<!-- posted response section  -->
+    <div class="response-post">
+        <form action="/responses/<%= response._id %>?_method=DELETE" method="post">
+            <button type="submit" class="delete-button btn btn-danger">X</button>
+        </form>
+        <p class="create-timestamp">Posted <%= response.createdAt.toLocaleString() %></p>
+        <hr>
+        <p>Rating: <%= response.rating %>/5</p>
+        <p><%= response.content %></p>
+        <form action="/responses/<%= response._id %>/edit" method="get">
+            <button class="edit-response-button btn btn-primary">Edit</button>
 <!-- end form for editing -->
         </form>
 <!-- end posted response div -->
     </div>
-    <% } else { %>
-        <!-- posted response section  -->
-        <div class="response-post">
-            <form action="/responses/<%= response._id %>?_method=DELETE" method="post">
-                <button type="submit" class="delete-button">X</button>
-            </form>
-                <p class="create-timestamp">Posted <%= response.createdAt.toLocaleString() %></p>
-                <p><%= response.rating %></p>
-                <p><%= response.content %></p>
-                <form action="/responses/<%= response._id %>/edit" method="get">
-                    <button class="edit-response-button">Edit</button>
-                </form>
-<!-- end form for editing -->
-            </form>
-<!-- end posted response div -->
-        </div>
-        <% }; %>
+    <% }; %>
     <% }); %>
-        <h3 class="forum-rating-calculated">Was this question helpful? (<%= (total / forums.responses.length).toFixed(1) %>/5)</h3>
+    <h3 class="forum-rating-calculated" style="margin-top:20px">Was this question helpful? (<%= (total / forums.responses.length).toFixed(1) %>/5)</h3>
 
 <!-- begin commments form section to create a new comment and rating -->
 
-<h2>Add a response:</h2>
-<form action="/forums/<%= forums._id %>/responses" method="post" class="response-form">
-    <label>Response:
-        <textarea name="content" cols="30" rows="10"></textarea>
-    </label>
-    <label>How helpful was this question?
-        <select name="rating">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-    </label>
-    <input type="submit" value="Add Response">
-</form>
+    <h2 style="margin-top: 30px">Add a response:</h2>
+    <form action="/forums/<%= forums._id %>/responses" method="post" class="response-form">
+        <label>Response:
+            <textarea class="form-control" name="content"></textarea>
+        </label>
+        <label>How helpful was this question?
+            <select name="rating" class="form-control response-option">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </label>
+        <input type="submit" class="btn btn-primary" value="Add Response">
+    </form>
+</div>
 
 <% include('../partials/footer'); %>

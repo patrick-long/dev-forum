@@ -59,6 +59,7 @@ body {
 .login-form > form > button {
     width: 50%;
     font-size: 1.2rem;
+    margin-top: 10px;
 }
 
 .login-form > form > input {
@@ -118,4 +119,10 @@ body {
 
 .big-title {
     margin-top: 10vh;
+}
+
+@media only screen and (max-width: 450px) {
+    .login-form {
+        width: 80%;   
+    }
 }

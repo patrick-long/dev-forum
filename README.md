@@ -14,6 +14,7 @@ Web forum designed for developers to come and ask questions about coding problem
 - Express.js
 - Node.js
 - Heroku (for deployment)
+- Bootstrap
 
 ---
 
@@ -54,7 +55,7 @@ Add a response and rating to the forum post
 ![screenshot of the response form at the bottom of the forum show view](public/imgs/postResponse.png)
 
 Edit a response
-
+![screenshot of form to edit a response in the forum show view](public/imgs/editResponse.png)
 
 Delete a forum posting or response
 
@@ -85,3 +86,5 @@ You can access the deployed app [here](https://software-developer-forums.herokua
 - Ability to search by topic using a search bar
 - Tags that search for like/similar tags when clicked
 - Ability to click "up arrow" and "down arrow" favicons to increment or decrement a forum post's or response's 
+- Display username who posted the forum posting or response next to the date created
+- Only users who created a specific piece of content should be able to delete or edit that content

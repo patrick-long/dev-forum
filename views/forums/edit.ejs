@@ -8,19 +8,19 @@
             <p class="form-title">Title</p>
             <hr>
             <p class="form-descriptor">Please be specific | Imagine you're asking a question to another person</p>
-            <input type="text" class="form-control" name="title">
+            <input type="text" class="form-control" name="title" value="<%= forum.title %>">
         </div>
         <div class="new-forum-content">
             <p class="form-title">Body</p>
             <hr>
             <p class="form-descriptor">Include all information someone might need to respond effectively</p>
-            <textarea name="content" class="form-control"></textarea>
+            <textarea name="content" class="form-control"><%= forum.content %></textarea>
         </div>
         <div class="new-forum-tags">
             <p class="form-title">Tags</p>
             <hr>
             <p class="form-descriptor">Add tags to link to your question</p>
-            <input type="text" class="form-control" name="tags">
+            <input type="text" class="form-control" name="tags" value="<%= forum.tags %>">
         </div>
 </div>
     <div class="new-edit-buttons">
